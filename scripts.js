@@ -12,7 +12,9 @@ function readImage() {
            img.src = e.target.result;
         };       
         FR.readAsDataURL( this.files[0] );
-        $(".tester").append("hi");
+        
+        var div = document.getElementById('tester');
+        div.innerHTML += 'HI';
     }
 }
 
