@@ -1,54 +1,28 @@
-function readUrlKNN(input) {
-  
-  if (input.files && input.files[0]) {
-    let reader = new FileReader();
-    reader.onload = (e) => {
-      let imgData = e.target.result;
-      let imgName = input.files[0].name;
-      input.setAttribute("data-title", imgName);
-      console.log(e.target.result);
-      console.log(imgName);
+var fileUpload = document.getElementById('fileUpload');
+var canvas  = document.getElementById('canvas');
+var ctx = canvas.getContext("2d");
+
+function readImage() {
+    if ( this.files && this.files[0] ) {
+        var FR= new FileReader();
+        FR.onload = function(e) {
+           var img = new Image();
+           img.src = e.target.result;
+           img.onload = function() {
+             ctx.drawImage(img, 0, 0, 512, 512);
+           };
+        };       
+        FR.readAsDataURL( this.files[0] );
     }
-    reader.readAsDataURL(input.files[0]);
-
-    $("<p id="knn-p">Result: </p>").appendTo("HELLO")
-
-  }
-
 }
 
-function readUrlSVM(input) {
-  
-  if (input.files && input.files[0]) {
-    let reader = new FileReader();
-    reader.onload = (e) => {
-      let imgData = e.target.result;
-      let imgName = input.files[0].name;
-      input.setAttribute("data-title", imgName);
-      console.log(e.target.result);
-      console.log(imgName);
-    }
-    reader.readAsDataURL(input.files[0]);
+fileUpload.onchange = readImage;
 
-    
-  }
-
-}
-
-function readUrlCNN(input) {
-  
-  if (input.files && input.files[0]) {
-    let reader = new FileReader();
-    reader.onload = (e) => {
-      let imgData = e.target.result;
-      let imgName = input.files[0].name;
-      input.setAttribute("data-title", imgName);
-      console.log(e.target.result);
-      console.log(imgName);
-    }
-    reader.readAsDataURL(input.files[0]);
-
-    
-  }
-
-}
+canvas.onclick = function(e) {
+  var x = e.offsetX;
+  var y = e.offsetY;
+  ctx.beginPath();
+  ctx.fillStyle = 'black';
+  ctx.arc(x, y, 5, 0, Math.PI * 2);
+  ctx.fill();
+};
