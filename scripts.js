@@ -11,7 +11,7 @@ function readUrlKNN(input) {
     }
     reader.readAsDataURL(input.files[0]);
 
-    $("knn-p").append("HELLO")
+    $("<p id="knn-p">Result: </p>").append("HELLO")
 
   }
 
