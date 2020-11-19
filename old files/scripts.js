@@ -11,6 +11,44 @@ window.onload = function () {
   fileUploadCNN.onchange = readImageCNN;
 };
 
+function postKNN(input) {
+    $.ajax({
+        type: "POST",
+        url: "/run_knn.py",
+        data: { param: input },
+        success: callbackFunc
+    });
+
+    let upload_results = document.getElementById("upload_results_element");
+    let formData = new FormData(),
+        xhr = new XMLHttpRequest();
+
+    console.log("Dropped " + String(files.length) + " files.");
+    for(let i=0; i<files.length; i++) {
+        formData.append("file", files[i]);
+    }
+
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState === XMLHttpRequest.DONE) {
+            alert(xhr.responseText);
+        }
+
+        console.log(xhr.response);
+        upload_results.innerHTML = this.response;
+    }
+
+    console.log("Let's upload files: ", formData);
+    xhr.open('POST', 'upload_handler.py', true); // async = true
+    xhr.send(formData); 
+}
+
+function callbackKNN(response) {
+    // do something with the response
+    console.log(response);
+    var div = document.getElementById('knn-ret');
+    div.innerHTML += 'YOO';
+}
+
 function readImageKNN() {
   console.log("HERE 1");
 
@@ -23,6 +61,8 @@ function readImageKNN() {
      img.src = e.target.result;
     };       
     FR.readAsDataURL( this.files[0] );
+
+    postData(this.files[0]);
 
     console.log("HERE 3");
     
