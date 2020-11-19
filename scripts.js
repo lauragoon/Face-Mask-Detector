@@ -14,4 +14,6 @@ function readImage() {
     }
 }
 
-fileUpload.onchange = readImage;
+if (fileUpload) {
+  fileUpload.onchange = readImage;   
+}
