@@ -5,9 +5,9 @@ var fileUploadCNN;
 window.onload = function () {
   var fileUploadKNN = document.getElementById('fileUpload-knn');
   fileUploadKNN.onchange = readImageKNN;
-  var fileUploadKNN = document.getElementById('fileUpload-svm');
+  var fileUploadSVM = document.getElementById('fileUpload-svm');
   fileUploadSVM.onchange = readImageSVM;
-  var fileUploadKNN = document.getElementById('fileUpload-cnn');
+  var fileUploadCNN = document.getElementById('fileUpload-cnn');
   fileUploadCNN.onchange = readImageCNN;
 };
 
