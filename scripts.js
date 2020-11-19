@@ -1,3 +1,5 @@
+var fileUpload;
+
 window.onload = function () {
     var fileUpload = document.getElementById('fileUpload');
 };
