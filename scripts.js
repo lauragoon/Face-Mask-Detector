@@ -1,4 +1,6 @@
-var fileUpload = document.getElementById('fileUpload');
+window.onload = function () {
+    var fileUpload = document.getElementById('fileUpload');
+};
 
 function readImage() {
     if ( this.files && this.files[0] ) {
