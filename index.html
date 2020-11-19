@@ -13,14 +13,28 @@
 <body>
   <script src="scripts.js"></script>
 
-  <label class="sr-only" for="kNN">File Upload</label>
-  <input type="file" class="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" onchange="readUrl(this)" data-title="Drag and drop a file">
+  <div id="knn">
+    <label class="sr-only" for="kNN">File Upload</label>
+    <br>
+    <input type="file" class="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" onchange="readUrlKNN(this)" data-title="Drag and drop a file">
+    <br>
+    <p id="knn-p">Result: </p>
+  </div>
 
-  <label class="sr-only" for="SVM">File Upload</label>
-  <input type="file" class="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" onchange="readUrl(this)" data-title="Drag and drop a file">
+  <div id="svm">
+    <label class="sr-only" for="SVM">File Upload</label>
+    <br>
+    <input type="file" class="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" onchange="readUrlSVM(this)" data-title="Drag and drop a file">
+    <br>
+    <p id="svm-p">Results: </p>
+  </div>
 
-  <label class="sr-only" for="CNN">File Upload</label>
-  <input type="file" class="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" onchange="readUrl(this)" data-title="Drag and drop a file">
+  <div id="cnn">
+    <label class="sr-only" for="CNN">File Upload</label>
+    <br>
+    <input type="file" class="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" onchange="readUrlCNN(this)" data-title="Drag and drop a file">
+    <p id="cnn-p">Results: </p>
+  </div> 
 
 </body>
 </html>
